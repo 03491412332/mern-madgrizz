@@ -31,9 +31,6 @@ app.use(
   cors({
     origin: ["https://medgrizz-frontend.vercel.app"],
     methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
   })
 );
 app.use(morgan("dev"));
