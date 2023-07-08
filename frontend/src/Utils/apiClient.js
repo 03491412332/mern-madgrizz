@@ -23,6 +23,7 @@ apiClient.interceptors.request.use(
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
+      config.headers["Access-Control-Allow-Origin"] = "*";
     }
     // console.log("request config", config);
     return config;
