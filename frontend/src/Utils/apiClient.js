@@ -33,6 +33,7 @@ apiClient.interceptors.request.use(
 );
 apiClient.interceptors.response.use(
   (response) => {
+    console.log("response in api client", response);
     if (response.config.parse) {
       console.log("response in api client", response);
       //perform the manipulation here and change the response object
