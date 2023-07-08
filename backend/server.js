@@ -50,7 +50,17 @@ app.use(express.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://medgrizz-frontend.vercel.app"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 // app.use(express.static(__dirname, "public"));
 app.get("/", (req, res, next) => {
   return res.send("Hi from backend");
@@ -69,14 +79,7 @@ app.all("*", (req, res, next) => {
   next(new AppError(`we can not find ${req.originalUrl} on this server `, 400));
 });
 app.use(globalErrorHandler);
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
+
 const PORT = 4000;
 app.listen(PORT, () => {
   connection()
