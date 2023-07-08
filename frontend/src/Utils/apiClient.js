@@ -31,5 +31,17 @@ apiClient.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+apiClient.interceptors.response.use(
+  (response) => {
+    if (response.config.parse) {
+      console.log("response in api client", response);
+      //perform the manipulation here and change the response object
+    }
+    return response;
+  },
+  (error) => {
+    return Promise.reject(error.message);
+  }
+);
 
 export default apiClient;
