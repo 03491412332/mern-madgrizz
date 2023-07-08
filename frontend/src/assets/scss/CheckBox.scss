@@ -1,0 +1,52 @@
+@import "./variables";
+.cyberpunk-button {
+  background-color: $primary_color;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.filters {
+  margin-top: 20px;
+}
+
+.cyberpunk-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid $primary_color;
+  border-radius: 5px;
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    background-color: $primary_color;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  &:checked:before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  &-label {
+    font-size: 18px;
+    // color: #fff;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+  }
+}

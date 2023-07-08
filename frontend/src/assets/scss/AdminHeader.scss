@@ -1,0 +1,27 @@
+@import "./variables.scss";
+.admin-header {
+  background-color: $theme_background_color;
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  justify-content: start;
+  // padding-left: 50px;
+  align-items: center;
+  svg {
+    margin: 30px;
+    // &:hover {
+    //   background: aqua;
+    //   padding: 20px;
+    // }
+  }
+  .arrow-section {
+    font-size: large;
+    margin-left: 50px;
+
+    // &:hover {
+    //   background-color: aqua;
+    //   padding: 20px;
+    // }
+  }
+}

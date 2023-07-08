@@ -1,0 +1,23 @@
+@import "../../../assets/scss/_variables.scss";
+.sidebar-item {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  transition: all 0.5s ease-in-out;
+  color: $sidebar_text_color;
+  &__icon {
+    font-weight: 700;
+    font-size: x-large;
+  }
+  &__text {
+    margin-left: 10px;
+    color: black;
+    font-size: 20px;
+    color: $sidebar_text_color;
+  }
+  &:hover {
+    background-color: $secondary_color;
+    transform: translateX($sidebarItem_transform);
+    width: calc(100% - $sidebarItem_transform);
+  }
+}
