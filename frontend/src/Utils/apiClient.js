@@ -11,7 +11,7 @@ console.log("token from api client", token);
 //axios.defaults.withCredentials = true;
 const apiClient = axios.create({
   baseURL: "https://medgrizz-backend.vercel.app/medgrizz/api/v1/",
-  withCredentials: true,
+  withCredentials: false,
   headers: {
     Authorization: `Bearer ${token}`,
     "Access-Control-Allow-Origin": "*",
