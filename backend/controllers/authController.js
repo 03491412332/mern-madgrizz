@@ -97,18 +97,20 @@ const signin = catchAsync(async (req, res, next) => {
 
   // 2) Check if user exists && password is correct
 
-  const user = await Users.findOne({ email }).select("+password");
-  // ab yahan pr hamary db mai jo password pra hai wo encrypted hai lekin jo password aa rha hai wo plain text mai hai iskliye ham bcrypt ka function istmal kr k check kr lain gy
-  //iss kliye ham mongoose instance method ka use krain gy
-  const correct = await user.correctPassword(password, user.password);
-  if (!user || !correct) {
-    return res.status(401).json({
-      status: "fail",
-      message: "Incorrect email or password",
-    });
-  }
-  // 3) if everything is ok send the token
-  const token = signToken(user._id);
+  // const user = await Users.findOne({ email }).select("+password");
+  // // ab yahan pr hamary db mai jo password pra hai wo encrypted hai lekin jo password aa rha hai wo plain text mai hai iskliye ham bcrypt ka function istmal kr k check kr lain gy
+  // //iss kliye ham mongoose instance method ka use krain gy
+  // const correct = await user.correctPassword(password, user.password);
+  // if (!user || !correct) {
+  //   return res.status(401).json({
+  //     status: "fail",
+  //     message: "Incorrect email or password",
+  //   });
+  // }
+  // // 3) if everything is ok send the token
+  // const token = signToken(user._id);
+  const user = { name: "Ghulam" };
+  const token = "jdjjdjdjd";
 
   return res.status(200).json({
     status: "success",
