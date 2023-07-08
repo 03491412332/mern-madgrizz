@@ -26,14 +26,7 @@ const app = express();
 //     credentials: true,
 //   })
 // );
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+
 app.use(
   cors({
     origin: true,
@@ -59,6 +52,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 // app.use(express.static(__dirname, "public"));
 app.get("/", (req, res, next) => {
   return res.send("Hi from backend");
@@ -71,6 +72,7 @@ app.use("/medgrizz/api/v1/questions", questionRouter);
 app.use("/medgrizz/api/v1/reports", reportRouter);
 app.use("/medgrizz/api/v1/help", helpRouter);
 app.use("/medgrizz/api/v1/plans", plansRouter);
+
 //middleware for routes not defined
 app.all("*", (req, res, next) => {
   next(new AppError(`we can not find ${req.originalUrl} on this server `, 400));
