@@ -109,7 +109,7 @@ const signin = catchAsync(async (req, res, next) => {
     });
   }
   // 3) if everything is ok send the token
-  // const token = signToken(user._id);
+  const token = signToken(user._id);
 
   return res.status(200).json({
     status: "success",
