@@ -6,8 +6,7 @@ const sendEmail = require("../Utils/email");
 const formidable = require("formidable");
 const path = require("path");
 const fs = require("fs/promises");
-const dotenv = require("dotenv");
-dotenv.config();
+
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
