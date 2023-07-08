@@ -109,7 +109,10 @@ const signin = catchAsync(async (req, res, next) => {
   }
   // 3) if everything is ok send the token
   const token = signToken(user._id);
-  res.header("Access-Control-Allow-Origin", true);
+  res.set(
+    "Access-Control-Allow-Origin",
+    "https://medgrizz-frontend.vercel.app"
+  );
   return res.status(200).json({
     status: "success",
     data: {
