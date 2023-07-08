@@ -29,7 +29,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: true,
+    origin: ["https://medgrizz-frontend.vercel.app"],
     methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
     credentials: true,
   })
