@@ -10,12 +10,11 @@ console.log("token from api client", token);
 // });
 //axios.defaults.withCredentials = true;
 const apiClient = axios.create({
-  baseURL: "https://medgrizz-project-api.vercel.app/medgrizz/api/v1/",
+  baseURL: "https://medgrizz-backend.vercel.app/medgrizz/api/v1/",
   headers: {
     Authorization: `Bearer ${token}`,
-    "Access-Control-Allow-Origin": "https://medgrizz-project-api.vercel.app"
+    "Access-Control-Allow-Origin": "https://medgrizz-backend.vercel.app/",
   },
- 
 });
 apiClient.interceptors.request.use(
   (config) => {
@@ -23,7 +22,6 @@ apiClient.interceptors.request.use(
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
-      
     }
     // console.log("request config", config);
     return config;
