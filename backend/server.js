@@ -29,8 +29,9 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://medgrizz-frontend.vercel.app"],
+    origin: ["https://medgrizz-frontend.vercel.app", "http://localhost:3000"],
     methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
+    credentials: true,
   })
 );
 app.use(morgan("dev"));
@@ -50,24 +51,24 @@ app.use(express.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use((req, res, next) => {
-  // res.header(
-  //   "Access-Control-Allow-Origin",
-  //   "https://medgrizz-frontend.vercel.app"
-  // );
-  // res.header(
-  //   "Access-Control-Allow-Headers",
-  //   "Origin, X-Requested-With, Content-Type, Accept"
-  // );
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://medgrizz-frontend.vercel.app"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Allow-Credentials", true);
-  next();
-  console.log("response headers", res);
-});
+// app.use((req, res, next) => {
+//   // res.header(
+//   //   "Access-Control-Allow-Origin",
+//   //   "https://medgrizz-frontend.vercel.app"
+//   // );
+//   // res.header(
+//   //   "Access-Control-Allow-Headers",
+//   //   "Origin, X-Requested-With, Content-Type, Accept"
+//   // );
+//   res.setHeader(
+//     "Access-Control-Allow-Origin",
+//     "https://medgrizz-frontend.vercel.app"
+//   );
+//   res.setHeader("Access-Control-Allow-Headers", "*");
+//   res.header("Access-Control-Allow-Credentials", true);
+//   next();
+//   console.log("response headers", res);
+// });
 // app.use(express.static(__dirname, "public"));
 app.get("/", (req, res, next) => {
   return res.send("Hi from backend");
