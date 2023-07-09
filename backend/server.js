@@ -91,9 +91,9 @@ app.use(globalErrorHandler);
 const PORT = 4000;
 app.listen(PORT, () => {
   connection()
-    .then((res) => console.log("Mongo connection successfull"))
+    .then((res) => console.log("Mongo connection successfully"))
     .catch((err) => console.log("error while connecting with mongo", err));
-  console.log(`Server running on ${PORT}`);
+  console.log(`Server running on ${PORT} port`);
 });
 process.on("unhandledRejection", (err) => {
   console.log(err.name, err.message);
