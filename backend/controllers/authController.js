@@ -6,7 +6,8 @@ const sendEmail = require("../Utils/email");
 const formidable = require("formidable");
 const path = require("path");
 const fs = require("fs/promises");
-
+const dotenv = require("dotenv");
+dotenv.config();
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
@@ -108,7 +109,7 @@ const signin = catchAsync(async (req, res, next) => {
     });
   }
   // 3) if everything is ok send the token
-  //const token = signToken(user._id);
+  const token = signToken(user._id);
   return res.status(200).json({
     status: "success",
     data: {
