@@ -1,0 +1,21 @@
+{
+  "name": "medgrizzproject",
+  "version": "1.0.0",
+  "description": "this is git sss ddd # mern-madgrizz",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd ../backend && npm install  && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/03491412332/mern-madgrizz.git"
+  },
+  "author": "Ghulam Dastgger Mughaul email:Ghulam.dastgeer374@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/03491412332/mern-madgrizz/issues"
+  },
+  "homepage": "https://github.com/03491412332/mern-madgrizz#readme"
+}
